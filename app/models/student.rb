@@ -1,0 +1,10 @@
+class Student < ApplicationRecord
+    before_save { self.email = email.downcase }
+    validates :name, presence: true, length: { minimum: 5, maximum: 50 }
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    validates :email, presence: true, length: { maximum: 105 },
+            # 生徒のメールアドレスを他のユーザーが使うことができないようにする
+            # case_sensitiveは大文字なども厳密にチェックする
+            uniqueness: { case_sensitive: false },
+            format: { with: VALID_EMAIL_REGEX }
+end
