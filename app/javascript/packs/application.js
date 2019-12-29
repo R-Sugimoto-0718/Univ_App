@@ -18,8 +18,9 @@ require("jquery")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks :load', function() {
     $(".dropdown-trigger").dropdown();
     $('.sidenav').sidenav();
+    $('#fade-out-target').fadeOut(4000);
 })
 
