@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   # resourcesは全てのアクションルートを出してくれる
   # execpt [:dest]はデストロイ以外をだすメソッド
   resources :students, except: [:destroy]
+  get 'login', to: 'logins#new'
+  post 'login', to: 'logins#create'
+  delete 'logout', to: 'logins#destroy'
 end
